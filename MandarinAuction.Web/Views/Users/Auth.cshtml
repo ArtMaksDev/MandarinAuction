@@ -1,0 +1,43 @@
+﻿@model MandarinAuction.UIModels.ViewModels.AuthViewModel
+
+<div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="w-100 text-center">
+                    <h5>Вход в систему</h5>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div>
+                    <div>
+                        <form method="post" class="row" id="authForm" action="#">
+                            <div class="mb-3">
+                                <label for="Email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="Email" name="Email" required />
+                                <span class="text-danger" asp-validation-for="Email"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="Password" name="Password" required />
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                            </div>
+                            <span id="authErrors"></span>
+                            <div class="d-flex justify-content-between">
+                                <button type="submit" class="btn btn-dark" id="signInBtn"
+                                        data-action="@Url.Action("SignIn", "Users")">
+                                    Войти
+                                </button>
+                                <button type="submit" class="btn btn-dark" id="registrationBtn"
+                                        data-action="@Url.Action("Registration", "Users")">
+                                    Зарегистрироваться
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
