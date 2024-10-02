@@ -2,6 +2,7 @@
 
 using Hangfire;
 using Hangfire.SqlServer;
+using MandarinAuction.App.Schedulers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -20,10 +21,17 @@ public static class HangfireConfiguratorServiceExtensions
         services.AddHangfireServer();
 
         ConfigureJobStorage(configuration);
+
+        AddSchedulers(services);
     }
 
     private static void ConfigureJobStorage(IConfiguration configuration)
     {
         JobStorage.Current = new SqlServerStorage(configuration.GetConnectionString(CfgDbName));
+    }
+
+    private static void AddSchedulers(this IServiceCollection services)
+    {
+        services.AddScoped<MandarinCleanUpScheduler>();
     }
 }

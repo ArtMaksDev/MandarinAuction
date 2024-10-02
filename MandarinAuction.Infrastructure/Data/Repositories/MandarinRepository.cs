@@ -38,4 +38,18 @@ public class MandarinRepository : IMandarinRepository
     {
         return await _dbContext.Mandarins.ToArrayAsync();
     }
+
+    public async Task<IEnumerable<Mandarin>> GetExpiredMandarins()
+    {
+        return await _dbContext.Mandarins
+            .Where(m => m.ExpirationDate < DateTime.UtcNow)
+            .ToArrayAsync();
+    }
+
+    public async Task RemoveRange(IEnumerable<Mandarin> mandarins)
+    {
+        _dbContext.RemoveRange(mandarins);
+
+        await Task.CompletedTask;
+    }
 }

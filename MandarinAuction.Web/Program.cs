@@ -16,7 +16,6 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-
         builder.Services.AddJwtAuthentication(builder.Configuration);
 
         builder.Services.AddDbContext<MsDbContext>(

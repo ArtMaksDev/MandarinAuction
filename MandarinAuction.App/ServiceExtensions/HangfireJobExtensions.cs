@@ -8,7 +8,9 @@ namespace MandarinAuction.App.ServiceExtensions
     {
         public static IApplicationBuilder UseHangfireJobs(this IApplicationBuilder app, IConfiguration configuration)
         {
-            JobsScheduler.Start(configuration); 
+            JobsScheduler.Start(configuration);
+
+
 
             return app;
         }

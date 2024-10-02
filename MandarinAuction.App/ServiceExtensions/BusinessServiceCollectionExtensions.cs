@@ -1,4 +1,5 @@
 ﻿using MandarinAuction.App.DTOs.Users;
+using MandarinAuction.App.Schedulers;
 using MandarinAuction.App.Services.Auctions;
 using MandarinAuction.App.Services.Auctions.Bids;
 using MandarinAuction.App.Services.Auctions.Creators;
